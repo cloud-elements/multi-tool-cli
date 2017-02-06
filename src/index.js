@@ -16,9 +16,13 @@ const cli = meow(`
 
   Examples
     $ ${name} install ramda@0.23.0
+    ramda@0.23.0
     $ ${name} install ramda@0.23.x
+    ramda@0.23.x
     $ ${name} install ramda@latest
+    ramda@latest
     $ ${name} install ramda@latest --directory /path/to/project
+    ramda@latest
 `);
 
 const cmd = cli.input[0];

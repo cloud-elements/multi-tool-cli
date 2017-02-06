@@ -13,9 +13,13 @@ $ npm install --global multi-tool-cli
 ## Usage
 ```bash
 $ multi-tool install ramda@0.23.0
+ramda@0.23.0
 $ multi-tool install ramda@0.23.x
+ramda@0.23.x
 $ multi-tool install ramda@latest
+ramda@latest
 $ multi-tool install ramda@latest --directory /path/to/project
+ramda@latest
 ```
 > __PROTIP:__ Any valid semver range that is also a valid \*nix directory name is supported.
 
