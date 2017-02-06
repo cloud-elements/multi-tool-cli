@@ -18,7 +18,7 @@ $ multi-tool install ramda@0.23.x
 ramda@0.23.x
 $ multi-tool install ramda@latest
 ramda@latest
-$ multi-tool install ramda@latest --directory /path/to/project
+$ multi-tool install ramda@latest --directory /path/to/project/node_modules
 ramda@latest
 ```
 > __PROTIP:__ Any valid semver range that is also a valid \*nix directory name is supported.
