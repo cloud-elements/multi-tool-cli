@@ -12,12 +12,13 @@ const name = 'multi-tool';
 
 const cli = meow(`
   Usage
-    $ ${name} install <name@version> [--directory <path>]
+    $ ${name} install <<name>@<version>> [--directory <path>]
 
   Examples
     $ ${name} install ramda@0.23.0
     $ ${name} install ramda@0.23.x
     $ ${name} install ramda@latest
+    $ ${name} install ramda@latest --directory /path/to/project
 `);
 
 const cmd = cli.input[0];
