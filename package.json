@@ -1,13 +1,16 @@
 {
-  "bin": {
-    "multi-tool": "src/index.js"
-  },
+  "bin": {"multi-tool": "src/index.js"},
   "dependencies": {
     "findup-sync": "0.4.x",
+    "meow": "3.x",
+    "multi-tool": "0.0.x",
+    "ramda": "0.23.x",
+    "valid-filename": "2.x"
   },
   "description": "Install multiple versions of NPM packages via semver ranges",
   "devDependencies": {
     "ava": "0.17.x",
+    "execa": "0.6.x",
     "nyc": "10.x",
     "xo": "0.17.x"
   },
