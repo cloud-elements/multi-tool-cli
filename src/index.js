@@ -50,12 +50,11 @@ if (!validName(pkgName) || !validVersion(pkgVersion)) {
   cli.showHelp(3);
 }
 
-install(pkgName, pkgVersion, dir)
-  .then(installed => {
-    if (isNil(installed) || isEmpty(installed)) {
-      cli.showHelp(1);
-    } else {
-      console.log(installed);
-      process.exit(0);
-    }
-  });
+install(pkgName, pkgVersion, dir).then(installed => {
+  if (isNil(installed) || isEmpty(installed)) {
+    cli.showHelp(1);
+  } else {
+    console.log(installed);
+    process.exit(0);
+  }
+});
