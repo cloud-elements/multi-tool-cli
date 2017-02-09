@@ -5,11 +5,16 @@
 const findup = require('findup-sync');
 const meow = require('meow');
 const install = require('multi-tool');
-const {allPass, anyPass, complement, equals, isEmpty, isNil, match, test} = require('ramda');
-const validFilename = require('valid-filename');
+const {anyPass, complement, equals, isEmpty, isNil, match, test} = require('ramda');
+
+const pkgRegex = /^(.+)@(.+)$/;
+const pkgLike = test(pkgRegex);
+
+const validCmd = anyPass([equals('install')]);
+const validDir = complement(isNil);
+const {validName, validVersion} = install;
 
 const name = 'multi-tool';
-
 const cli = meow(`
   Usage
     $ ${name} install <<name>@<version>> [--directory <path>]
@@ -30,21 +35,20 @@ const pkg = cli.flags.package || cli.input[1];
 const directory = cli.flags.directory || cli.input[2];
 
 const dir = directory ? findup('node_modules', {cwd: directory}) : findup('node_modules');
-const regexPkg = /^(.+)@(.+)$/;
-
-const validCmd = anyPass([equals('install')]);
-const validDir = complement(isNil);
-const validPkg = allPass([validFilename, test(regexPkg)]);
 
 if (!validCmd(cmd)) {
   cli.showHelp(2);
-} else if (!validPkg(pkg)) {
+} else if (!pkgLike(pkg)) {
   cli.showHelp(3);
 } else if (!validDir(dir)) {
   cli.showHelp(4);
 }
 
-const [, pkgName, pkgVersion] = match(regexPkg, pkg);
+const [, pkgName, pkgVersion] = match(pkgRegex, pkg);
+
+if (!validName(pkgName) || !validVersion(pkgVersion)) {
+  cli.showHelp(3);
+}
 
 install(pkgName, pkgVersion, dir)
   .then(installed => {

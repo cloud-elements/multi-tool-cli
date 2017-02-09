@@ -40,10 +40,16 @@ test.serial('invalid subcommand should exit 2', async t => {
 });
 
 test.serial('invalid package should exit 3', async t => {
-  t.plan(1);
+  t.plan(2);
 
   try {
     await shell(`${cli} install ramda`);
+  } catch (err) {
+    t.is(err.code, 3);
+  }
+
+  try {
+    await shell(`${cli} install 'ramda@>=0.23.0'`);
   } catch (err) {
     t.is(err.code, 3);
   }
