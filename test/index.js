@@ -40,20 +40,26 @@ test.serial('invalid subcommand should exit 2', async t => {
 });
 
 test.serial('invalid package should exit 3', async t => {
-  t.plan(1);
+  t.plan(2);
 
   try {
     await shell(`${cli} install ramda`);
   } catch (err) {
     t.is(err.code, 3);
   }
+
+  try {
+    await shell(`${cli} install 'ramda@>=0.23.0'`);
+  } catch (err) {
+    t.is(err.code, 3);
+  }
 });
 
-test.serial('invalid directory should exit 4', async t => {
+test.serial('invalid path should exit 4', async t => {
   t.plan(1);
 
   try {
-    await shell(`${cli} install ramda@0.23.0 --directory /tmp`);
+    await shell(`${cli} install ramda@0.23.0 --path /tmp`);
   } catch (err) {
     t.is(err.code, 4);
   }
