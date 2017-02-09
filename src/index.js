@@ -5,7 +5,7 @@
 const findup = require('findup-sync');
 const meow = require('meow');
 const install = require('multi-tool');
-const {allPass, anyPass, complement, equals, isNil, match, test} = require('ramda');
+const {allPass, anyPass, complement, equals, isEmpty, isNil, match, test} = require('ramda');
 const validFilename = require('valid-filename');
 
 const name = 'multi-tool';
@@ -36,11 +36,11 @@ const validCmd = anyPass([equals('install')]);
 const validDir = complement(isNil);
 const validPkg = allPass([validFilename, test(regexPkg)]);
 
-if (complement(validCmd)(cmd)) {
+if (!validCmd(cmd)) {
   cli.showHelp(2);
-} else if (complement(validPkg)(pkg)) {
+} else if (!validPkg(pkg)) {
   cli.showHelp(3);
-} else if (complement(validDir)(dir)) {
+} else if (!validDir(dir)) {
   cli.showHelp(4);
 }
 
@@ -48,7 +48,7 @@ const [, pkgName, pkgVersion] = match(regexPkg, pkg);
 
 install(pkgName, pkgVersion, dir)
   .then(installed => {
-    if (isNil(installed)) {
+    if (isNil(installed) || isEmpty(installed)) {
       cli.showHelp(1);
     } else {
       console.log(installed);

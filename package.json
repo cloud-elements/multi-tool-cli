@@ -3,7 +3,7 @@
   "dependencies": {
     "findup-sync": "0.4.x",
     "meow": "3.x",
-    "multi-tool": "0.0.x",
+    "multi-tool": "0.2.x",
     "ramda": "0.23.x",
     "valid-filename": "2.x"
   },
