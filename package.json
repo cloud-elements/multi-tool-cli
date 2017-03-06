@@ -1,5 +1,5 @@
 {
-  "bin": {"multi-tool": "src/index.js"},
+  "bin": {"multi-tool": "index.js"},
   "dependencies": {
     "findup-sync": "0.4.x",
     "meow": "3.x",
@@ -34,7 +34,6 @@
   "nyc": {
     "branches": 100,
     "functions": 100,
-    "include": ["src/**/*.js"],
     "lines": 100,
     "statements": 100
   },

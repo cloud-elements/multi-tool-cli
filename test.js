@@ -3,7 +3,7 @@
 const test = require('ava');
 const {shell} = require('execa');
 
-const cli = 'src/index.js';
+const cli = './index.js';
 
 test.serial('installing via exact match should work', async t => {
   const installed = await shell(`${cli} install ramda@0.23.0`);
