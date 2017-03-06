@@ -5,6 +5,13 @@ const {shell} = require('execa');
 
 const cli = './index.js';
 
+test.serial('installing via latest match should work', async t => {
+	const installed = await shell(`${cli} install ramda@latest`);
+
+	t.is(installed.code, 0);
+	t.is(installed.stdout, 'ramda@latest');
+});
+
 test.serial('installing via exact match should work', async t => {
 	const installed = await shell(`${cli} install ramda@0.23.0`);
 
@@ -17,6 +24,13 @@ test.serial('installing via x-range match should work', async t => {
 
 	t.is(installed.code, 0);
 	t.is(installed.stdout, 'ramda@0.23.x');
+});
+
+test.serial('installing via tilde-range match should work', async t => {
+	const installed = await shell(`${cli} install ramda@~0.22.1`);
+
+	t.is(installed.code, 0);
+	t.is(installed.stdout, 'ramda@~0.22.1');
 });
 
 test.serial('installing non-existent package should exit 1', async t => {
