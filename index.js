@@ -22,7 +22,9 @@ const cli = meow(`
 		$ ${name} install ramda@0.23.0
 		ramda@0.23.0
 		$ ${name} install ramda@0.23.x
-		ramda@0.23.x
+    ramda@0.23.0
+    $ ${name} install ramda@~0.22.1
+		ramda@~0.22.1
 		$ ${name} install ramda@latest
 		ramda@latest
 		$ ${name} install ramda@latest --path /path/to/project/node_modules
