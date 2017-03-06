@@ -50,8 +50,5 @@
     "unit": "ava"
   },
   "version": "0.1.0",
-  "xo": {
-    "esnext": true,
-    "space": 2
-  }
+  "xo": {"esnext": true}
 }
