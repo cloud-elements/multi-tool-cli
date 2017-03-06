@@ -3,7 +3,7 @@
   "dependencies": {
     "findup-sync": "0.4.x",
     "meow": "3.x",
-    "multi-tool": "0.2.x",
+    "multi-tool": "0.3.x",
     "ramda": "0.23.x"
   },
   "description": "Install and require multiple versions of NPM packages as dependencies",

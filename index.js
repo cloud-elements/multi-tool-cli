@@ -3,7 +3,6 @@
 
 const findup = require('findup-sync');
 const meow = require('meow');
-const install = require('multi-tool');
 const {anyPass, complement, equals, isEmpty, isNil, match, test} = require('ramda');
 
 const pkgRegex = /^(.+)@(.+)$/;
@@ -11,7 +10,6 @@ const pkgLike = test(pkgRegex);
 
 const validCmd = anyPass([equals('install')]);
 const validPath = complement(isNil);
-const {validName, validVersion} = install;
 
 const name = 'multi-tool';
 const cli = meow(`
@@ -36,6 +34,9 @@ const pkg = cli.flags.package || cli.input[1];
 const path = cli.flags.path || cli.input[2];
 
 const pth = path ? findup('node_modules', {cwd: path}) : findup('node_modules');
+const install = require('multi-tool')(pth);
+
+const {validName, validVersion} = install;
 
 if (!validCmd(cmd)) {
 	cli.showHelp(2);
