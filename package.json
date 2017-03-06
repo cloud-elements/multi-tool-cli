@@ -11,10 +11,11 @@
   "devDependencies": {
     "ava": "0.17.x",
     "execa": "0.6.x",
+    "npm-check": "5.x",
     "nyc": "10.x",
     "xo": "0.17.x"
   },
-  "engines": {"node": ">=7.2.0"},
+  "engines": {"node": ">=7.6.0"},
   "homepage": "https://github.com/cloud-elements/multi-tool-cli",
   "keywords": [
     "cli",
@@ -23,7 +24,7 @@
     "npm",
     "package",
     "packages",
-    "require"
+    "require",
     "semver",
     "version",
     "versioning"
@@ -42,11 +43,13 @@
     "url": "git://github.com/cloud-elements/multi-tool-cli.git"
   },
   "scripts": {
-    "clean": "rm -rf node_modules",
-    "coverage": "node --harmony node_modules/.bin/nyc report --reporter=lcov --reporter=text-lcov",
-    "lint": "node --harmony node_modules/.bin/xo",
-    "test": "node --harmony node_modules/.bin/xo && node --harmony node_modules/.bin/nyc --check-coverage node --harmony node_modules/.bin/ava",
-    "unit": "node --harmony node_modules/.bin/ava"
+    "clean": "rm -rf .nyc_output && rm -rf coverage && rm -rf node_modules",
+    "cover": "nyc report --reporter=text-lcov",
+    "coverage": "nyc report --reporter=lcov && open ./coverage/lcov-report/index.html",
+    "depend": "npm-check",
+    "lint": "xo",
+    "test": "xo && { npm-check || true; } && nyc --check-coverage ava",
+    "unit": "ava"
   },
   "version": "0.1.0",
   "xo": {
