@@ -1,20 +1,20 @@
 {
-  "bin": {"multi-tool": "src/index.js"},
+  "bin": {"multi-tool": "index.js"},
   "dependencies": {
     "findup-sync": "0.4.x",
     "meow": "3.x",
-    "multi-tool": "0.2.x",
-    "ramda": "0.23.x",
-    "valid-filename": "2.x"
+    "multi-tool": "0.3.x",
+    "ramda": "0.23.x"
   },
-  "description": "Install multiple versions of NPM packages via semver ranges",
+  "description": "Install and require multiple versions of NPM packages as dependencies",
   "devDependencies": {
-    "ava": "0.17.x",
+    "ava": "0.18.x",
     "execa": "0.6.x",
+    "npm-check": "5.x",
     "nyc": "10.x",
     "xo": "0.17.x"
   },
-  "engines": {"node": ">=7.2.0"},
+  "engines": {"node": ">=7.6.0"},
   "homepage": "https://github.com/cloud-elements/multi-tool-cli",
   "keywords": [
     "cli",
@@ -23,6 +23,7 @@
     "npm",
     "package",
     "packages",
+    "require",
     "semver",
     "version",
     "versioning"
@@ -32,7 +33,6 @@
   "nyc": {
     "branches": 100,
     "functions": 100,
-    "include": ["src/**/*.js"],
     "lines": 100,
     "statements": 100
   },
@@ -41,15 +41,14 @@
     "url": "git://github.com/cloud-elements/multi-tool-cli.git"
   },
   "scripts": {
-    "clean": "rm -rf node_modules",
-    "coverage": "node --harmony node_modules/.bin/nyc report --reporter=lcov --reporter=text-lcov",
-    "lint": "node --harmony node_modules/.bin/xo",
-    "test": "node --harmony node_modules/.bin/xo && node --harmony node_modules/.bin/nyc --check-coverage node --harmony node_modules/.bin/ava",
-    "unit": "node --harmony node_modules/.bin/ava"
+    "clean": "rm -rf .nyc_output && rm -rf coverage && rm -rf node_modules",
+    "cover": "nyc report --reporter=text-lcov",
+    "coverage": "nyc report --reporter=lcov && open ./coverage/lcov-report/index.html",
+    "depend": "npm-check",
+    "lint": "xo",
+    "test": "xo && { npm-check || true; } && nyc --check-coverage ava",
+    "unit": "ava"
   },
   "version": "0.1.0",
-  "xo": {
-    "esnext": true,
-    "space": 2
-  }
+  "xo": {"esnext": true}
 }

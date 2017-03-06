@@ -12,4 +12,4 @@ dependencies:
 
 test:
   post:
-    - npm run coverage
+    - npm run cover
