@@ -1,4 +1,4 @@
-# multi-tool-cli <sub><sup>| Install multiple versions of NPM packages via semver ranges<sup></sub>
+# multi-tool-cli <sub><sup>| Install and require multiple versions of NPM packages as dependencies<sup></sub>
 [![version](http://img.shields.io/badge/version-0.1.0-blue.svg)](https://www.npmjs.com/package/multi-tool-cli)
 [![versioning](http://img.shields.io/badge/versioning-semver-blue.svg)](http://semver.org/)
 [![branching](http://img.shields.io/badge/branching-github%20flow-blue.svg)](https://guides.github.com/introduction/flow/)

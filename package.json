@@ -7,7 +7,7 @@
     "ramda": "0.23.x",
     "valid-filename": "2.x"
   },
-  "description": "Install multiple versions of NPM packages via semver ranges",
+  "description": "Install and require multiple versions of NPM packages as dependencies",
   "devDependencies": {
     "ava": "0.17.x",
     "execa": "0.6.x",
@@ -23,6 +23,7 @@
     "npm",
     "package",
     "packages",
+    "require"
     "semver",
     "version",
     "versioning"
