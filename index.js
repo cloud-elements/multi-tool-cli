@@ -1,5 +1,4 @@
-#!/bin/bash
-// >&/dev/null;exec node --harmony $0 $@
+#!/usr/bin/env node
 'use strict';
 
 const findup = require('findup-sync');
