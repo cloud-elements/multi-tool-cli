@@ -5,6 +5,8 @@ const {shell} = require('execa');
 
 const cli = './index.js';
 
+test.before(async () => await shell('npm prune'));
+
 test.serial('installing via latest match should work', async t => {
 	const installed = await shell(`${cli} install ramda@latest`);
 
