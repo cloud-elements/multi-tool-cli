@@ -19,7 +19,7 @@ Usage:
   $ multi-tool install <[--package ]<package>> [--path <path>]
 
 Subcommands:
-  install  Install a package in a path
+  install  Install a package to a path
 
 Options:
   --package  The package name and version to install (default: undefined)
