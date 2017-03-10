@@ -46,7 +46,7 @@
     "coverage": "nyc report --reporter=lcov && open ./coverage/lcov-report/index.html",
     "depend": "npm-check",
     "lint": "xo",
-    "test": "xo && { npm-check || true; } && nyc --check-coverage ava",
+    "test": "{ npm-check || true; } && xo && nyc --check-coverage ava",
     "unit": "ava"
   },
   "version": "0.2.0",
