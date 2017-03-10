@@ -13,20 +13,29 @@ $ npm install --global multi-tool-cli
 ## Usage
 ```bash
 $ multi-tool --help
-  Usage
-    $ multi-tool install <<name>@<version>> [--path <path>]
+Install and require multiple versions of NPM packages
 
-  Examples
-    $ multi-tool install ramda@0.23.0
-    ramda@0.23.0
-    $ multi-tool install ramda@0.23.x
-    ramda@0.23.x
-    $ multi-tool install ramda@~0.22.1
-    ramda@~0.22.1
-    $ multi-tool install ramda@latest
-    ramda@latest
-    $ multi-tool install ramda@latest --path /path/to/project/node_modules
-    ramda@latest
+Usage:
+  $ multi-tool install <[--package ]<package>> [--path <path>]
+
+Subcommands:
+  install  Install a package in a path
+
+Options:
+  --package  The package name and version to install (example: ramda@0.23.x)
+  --path     The path where to install (example: /path/to/project/node_modules)
+
+Examples:
+  $ multi-tool install ramda@0.23.0
+  ramda@0.23.0
+  $ multi-tool install ramda@0.23.x
+  ramda@0.23.0
+  $ multi-tool install ramda@~0.22.1
+  ramda@~0.22.1
+  $ multi-tool install ramda@latest
+  ramda@latest
+  $ multi-tool install ramda@latest --path /path/to/project/node_modules
+  ramda@latest
 ```
 
 ## Maintainers

@@ -13,10 +13,17 @@ const validPath = complement(isNil);
 
 const name = 'multi-tool';
 const cli = meow(`
-Usage
-  $ ${name} install <<name>@<version>> [--path <path>]
+Usage:
+  $ ${name} install <[--package ]<package>> [--path <path>]
 
-Examples
+Subcommands:
+  install  Install a package in a path
+
+Options:
+  --package  The package name and version to install (example: ramda@0.23.x)
+  --path     The path where to install (example: /path/to/project/node_modules)
+
+Examples:
   $ ${name} install ramda@0.23.0
   ramda@0.23.0
   $ ${name} install ramda@0.23.x
