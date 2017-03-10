@@ -6,7 +6,7 @@
     "multi-tool": "0.3.x",
     "ramda": "0.23.x"
   },
-  "description": "Install and require multiple versions of NPM packages as dependencies",
+  "description": "Install and require multiple versions of NPM packages",
   "devDependencies": {
     "ava": "0.18.x",
     "execa": "0.6.x",
