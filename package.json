@@ -6,7 +6,7 @@
     "multi-tool": "0.3.x",
     "ramda": "0.23.x"
   },
-  "description": "Install and require multiple versions of NPM packages as dependencies",
+  "description": "Install and require multiple versions of NPM packages",
   "devDependencies": {
     "ava": "0.18.x",
     "execa": "0.6.x",
@@ -46,8 +46,8 @@
     "coverage": "nyc report --reporter=lcov && open ./coverage/lcov-report/index.html",
     "depend": "npm-check",
     "lint": "xo",
-    "test": "xo && { npm-check || true; } && nyc --check-coverage ava",
-    "unit": "ava"
+    "test": "{ npm run depend || true; } && npm run lint && npm run unit",
+    "unit": "nyc --check-coverage ava"
   },
   "version": "0.2.0",
   "xo": {"esnext": true}

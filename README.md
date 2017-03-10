@@ -1,4 +1,4 @@
-# multi-tool-cli <sub><sup>| Install and require multiple versions of NPM packages as dependencies<sup></sub>
+# multi-tool-cli <sub><sup>| Install and require multiple versions of NPM packages<sup></sub>
 [![version](http://img.shields.io/badge/version-0.2.0-blue.svg)](https://www.npmjs.com/package/multi-tool-cli)
 [![versioning](http://img.shields.io/badge/versioning-semver-blue.svg)](http://semver.org/)
 [![branching](http://img.shields.io/badge/branching-github%20flow-blue.svg)](https://guides.github.com/introduction/flow/)
@@ -13,20 +13,30 @@ $ npm install --global multi-tool-cli
 ## Usage
 ```bash
 $ multi-tool --help
-  Usage
-    $ multi-tool install <<name>@<version>> [--path <path>]
+Install and require multiple versions of NPM packages
 
-  Examples
-    $ multi-tool install ramda@0.23.0
-    ramda@0.23.0
-    $ multi-tool install ramda@0.23.x
-    ramda@0.23.x
-    $ multi-tool install ramda@~0.22.1
-    ramda@~0.22.1
-    $ multi-tool install ramda@latest
-    ramda@latest
-    $ multi-tool install ramda@latest --path /path/to/project/node_modules
-    ramda@latest
+Usage:
+  $ multi-tool install <[--package ]<package>> [--path <path>]
+
+Subcommands:
+  install  Install package to path
+
+Options:
+  --package  The package name and version to install (default: undefined)
+  --path     The path where to install (default: current directory or the
+             nearest ancestor node_modules directory)
+
+Examples:
+  $ multi-tool install ramda@0.23.0
+  ramda@0.23.0
+  $ multi-tool install ramda@0.23.x
+  ramda@0.23.0
+  $ multi-tool install ramda@~0.22.1
+  ramda@~0.22.1
+  $ multi-tool install ramda@latest
+  ramda@latest
+  $ multi-tool install ramda@latest --path /path/to/project/node_modules
+  ramda@latest
 ```
 
 ## Maintainers
