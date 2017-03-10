@@ -1,3 +1,6 @@
+## v0.2.1 <sub><sup>(2017-03-09)</sup></sub>
+* Update usage
+
 ## v0.2.0 <sub><sup>(2017-03-06)</sup></sub>
 * Update `multi-tool` version to `0.3.x`
 
