@@ -22,8 +22,9 @@ Subcommands:
   install  Install a package in a path
 
 Options:
-  --package  The package name and version to install (example: ramda@0.23.x)
-  --path     The path where to install (example: /path/to/project/node_modules)
+  --package  The package name and version to install (default: undefined)
+  --path     The path where to install (default: current directory or the
+             nearest ancestor node_modules directory)
 
 Examples:
   $ multi-tool install ramda@0.23.0
